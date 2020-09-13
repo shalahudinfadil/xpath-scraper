@@ -9,8 +9,8 @@ class News(db.Model):
     summary = db.Column(db.Text)
     article_ts = db.Column(db.BigInteger, nullable=False, default=0)
     published_date = db.Column(db.Date, nullable=True)
-    inserted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    inserted = db.Column(db.DateTime, nullable=False, default=datetime.now)
     updated = db.Column(db.DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
 
     def __repr__(self):
-        return '<Artikel: {}>'.format(self.title)   
+        return '<Artikel: {}, Publikasi: {}, Inserted: {}>'.format(self.title, self.published_date, self.inserted)
