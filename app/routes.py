@@ -5,7 +5,7 @@ from flask import render_template
 
 @app.route('/')
 def index():
-    parser.parse("http://www.tribunnews.com/rss")
-    parser.parse_antara("http://www.antaranews.com/indeks")
+    parser.parse(site="tribun",url="https://www.tribunnews.com/rss")
+    parser.parse(site="antara",url="https://www.antaranews.com/indeks")
     news = News.query.order_by(News.article_ts.desc()).all()
     return render_template('index.html', news=news)
